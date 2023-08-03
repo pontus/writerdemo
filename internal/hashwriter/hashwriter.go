@@ -41,7 +41,7 @@ func (hw *HashWriter) Write(data []byte) (int, error) {
 
 	for written < len(data) {
 
-		nx, err := hw.w.Write(data)
+		nx, err := hw.w.Write(data[written:])
 		written += nx
 		if err != nil {
 			return written, err
